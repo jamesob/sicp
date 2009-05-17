@@ -1,25 +1,6 @@
-;; test functions 
-
-(define (cube x)
-  (* x x x))
-
-(define (mr-gauss x)
-  (exp (* x x -1)))
-
-;; methods of numerical integration
-
-(define (foolish-integral f a b dx)
-  (define (add-dx x) (+ x dx))
-  (* (sum f (+ a (/ dx 2.0)) add-dx b)
-     dx))
-
-(define (simpson-integral f a b n)
-  (define (h a b n)
-    (/ (- b a) n))
-  (* (sum-simp 0 (h a b n) f a n)
-     (/ (h a b n) 3)))
-
-;; subsidiary functions
+;; Here we are asked to redefine the previously-used sum 
+;; function such that it's iterative as opposed to a 
+;; linear recursion. Easily done.
 
 (define (sum term a next b)
   (define (iter a result)
@@ -28,14 +9,3 @@
         (iter (next a)
               (+ (term a) result))))
   (iter a 0))
-
-(define (sum-simp k h f a n)
-  (if (> k n)
-      0
-      (+ (* (simp-co k n) (f (+ a (* k h))))
-         (sum-simp (+ 1 k) h f a n)))) 
-
-(define (simp-co k n)
-  (cond ((= 0 (remainder k n)) 1)
-        ((even? k) 2)
-        (else 4)))
