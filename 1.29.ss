@@ -33,7 +33,7 @@
   (* (sum-simp 0 (h a b n) f a n)
      (/ (h a b n) 3)))
 
-#|
+#!
 Using the constructed simpson-integral function, we compare the two techniques.
 
 > (foolish-integral cube 0 1 .001)
@@ -50,7 +50,7 @@ iterations. Maybe Abelson and Sussman should've picked a less trivial integral
 to illustrate the difference between the two.
 
 We define a new, more novel function:
-|#
+!#
 
 (define (mr-gauss x)
   (exp (* x x -1)))
