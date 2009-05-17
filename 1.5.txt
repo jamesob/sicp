@@ -1,0 +1,18 @@
+"(define (p) (p))
+
+(define (test x y)
+  (if (= x 0)
+      0
+      y))
+
+Then he evaluates the expression
+
+(test 0 (p))"
+
+
+
+If an interpreter which uses applicative-order evaluation is fed this bit of scheme, test will not terminate. Applicative-order evaluation first seeks to resolve the operands, causing (p) to eat its tail in an attempt to evaluate itself.
+
+If the interpreter uses normal-order evaluation, the operator is examined first, and thus test will return 0.
+
+Because scheme's interpreter uses applicative-order evaluation, Miss Hacker's version of sqrt-iter will invariably call itself because both arguments in new-if are evaluated. Thus, sqrt-iter will never terminate.

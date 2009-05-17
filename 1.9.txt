@@ -1,0 +1,28 @@
+(define (+ a b)
+  (if (= a 0)
+      b
+      (inc (+ (dec a) b))))
+
+(define (+ a b)
+  (if (= a 0)
+      b
+      (+ (dec a) (inc b))))
+
+Using the substitution model, the first + procedure can be visualized as the following:
+
+(+ 2 3)
+(inc (+ 1 3))
+(inc (inc (3)) ;;  since 1 is dec'd to 0, + returns b
+
+It's apparent that the first + procedure is linearly recursive.
+
+Let's investigate the second given +.
+
+Using the substitution model, we produce:
+
+(+ 2 3)
+(+ 1 4)
+(+ 0 5)
+(5)
+
+It is worth noting that though the second +'s procedure is recursive syntactically, its process is iterative.

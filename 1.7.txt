@@ -1,0 +1,11 @@
+> (my-sqrt .00004)
+0.0316750950802321805025173...
+> (square .0316)
+0.00099856
+> (my-sqrt 1000000000)
+user break
+> 
+
+The current implementation of Newton's square root approximation doesn't work so well for very large and very small numbers because of the halting criteria; the procedure stops when the guess squared is within .0001 of the input. For very large number, this becomes too insignificant of a quantity to ever be satisfied, and for very small numbers, this is too easily reachable to yield a useful result.
+
+Watching the change from guess-to-guess is a better approach.
