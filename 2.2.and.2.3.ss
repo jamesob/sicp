@@ -59,7 +59,7 @@
 ; from ex2.2, and the notion of modules in scheme is 
 ;
 ;   (i) implementation-dependent, and
-;   (ii) uniformly  in every case I've seen.
+;   (ii) uniformly bizarre in every case I've seen.
 ;
 ; As far as I can tell, this is one of the biggest reasons that
 ; lisp hasn't reached the common programmer --- good packaging is not
